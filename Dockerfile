@@ -8,7 +8,7 @@ ENV RUNNER_ARGS=""
 LABEL maintainer="ibodrov@gmail.com"
 
 RUN apt update && \
-    apt install -y --no-install-recommends openjdk-17-jre-headless && \
+    apt install -y --no-install-recommends openjdk-17-jre-headless unzip && \
     apt clean && \
     groupadd -g ${CONCORD_DOCKER_DEFAULT_USER} concord && \
     useradd --no-log-init -u ${CONCORD_DOCKER_DEFAULT_USER} -g concord -m -s /sbin/nologin concord

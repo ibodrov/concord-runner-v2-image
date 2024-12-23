@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <concord.version>2.15.0</concord.version>
+        <concord.version>2.20.0</concord.version>
         <docker.allowPull>true</docker.allowPull>
         <docker.tagbase>ibodrov/${project.artifactId}</docker.tagbase>
         <image.platforms>linux/amd64</image.platforms>
