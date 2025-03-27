@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <concord.version>2.20.0</concord.version>
+        <concord.version>2.25.0</concord.version>
         <docker.allowPull>true</docker.allowPull>
         <docker.tagbase>ibodrov/${project.artifactId}</docker.tagbase>
         <image.platforms>linux/amd64</image.platforms>
@@ -29,7 +29,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.1</version>
                 <executions>
                     <execution>
                         <id>copy-deps</id>
@@ -49,7 +49,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <id>docker-build</id>
@@ -63,19 +63,14 @@
                             <arguments>
                                 <argument>buildx</argument>
                                 <argument>build</argument>
-
                                 <argument>-t</argument>
                                 <argument>${docker.tagbase}:latest</argument>
                                 <argument>-t</argument>
                                 <argument>${docker.tagbase}:${project.version}</argument>
-
                                 <argument>--build-arg=CONCORD_VERSION=${concord.version}</argument>
-`
                                 <argument>--platform=${image.platforms}</argument>
-
                                 <argument>--load</argument>
                                 <argument>--pull=${docker.allowPull}</argument>
-
                                 <argument>.</argument>
                             </arguments>
                         </configuration>
